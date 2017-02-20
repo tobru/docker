@@ -48,7 +48,8 @@ RUN curl -fsSL -o nextcloud.tar.bz2 \
  && gpg --keyserver ha.pool.sks-keyservers.net --recv-keys 28806A878AE423A28372792ED75899B9A724937A \
  && gpg --batch --verify nextcloud.tar.bz2.asc nextcloud.tar.bz2 \
  && rm -r "$GNUPGHOME" nextcloud.tar.bz2.asc \
- && tar -xjf nextcloud.tar.bz2 -C /var/www/
+ && tar -xjf nextcloud.tar.bz2 -C /var/www/ \
+ && rm nextcloud.tar.bz2
 
 COPY docker-entrypoint.sh /entrypoint.sh
 
